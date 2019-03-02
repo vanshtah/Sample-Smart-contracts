@@ -28,7 +28,7 @@ contract example1 is example{
         message = _message;
     }
     
-    function record(string _fname, string _lname, uint256 _mobile_no) public{
+    function record(string _fname, string _lname, uint256 _mobile_no) public payable{
         
         Users usr = users[msg.sender];
         usr.fname = _fname;
@@ -37,8 +37,13 @@ contract example1 is example{
         usr.balance = msg.value;
     }
     
-    function getRecord() public view returns (string, string, uint256, uint){
-        return (users[msg.sender].fname, users[msg.sender].lname, users[msg.sender].mobile_no, users[msg.sender].balance );
+    function getRecord(address user) public view returns (string, string, uint256, uint){
+        return (users[user].fname, users[user].lname, users[user].mobile_no, users[user].balance );
     }
     
+    function destructur() public{
+        require( msg.sender != owner, "error in execution"); revert();
+        // if(msg.sender != owner )
+        selfdestruct(owner);
+    }
 }
