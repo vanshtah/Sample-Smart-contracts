@@ -1,3 +1,4 @@
+pragma solidity ^0.5.2;
 import "github.com/OpenZeppelin/openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 
 contract Vansh is ERC20{
