@@ -5,10 +5,10 @@ contract Vansh is ERC20{
     string public name;
     string public symbol;
     
-    constructor() public {
+    constructor(string memory _name, string memory _symbol) public {
         owner = msg.sender;
-        name = "Vandh Token";
-        symbol = "VAN";
+        name = _name;
+        symbol = _symbol;
         _mint(owner, 100000000);
     }
 }
